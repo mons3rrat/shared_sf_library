@@ -1,6 +1,5 @@
 def call (user, title, tobranch, frombranch, org){
-  def COMMIT_MESSAGE = sh(script:'git log -1 --pretty=%B',
-      returnStdout: true).trim()
+  def COMMIT_MESSAGE = sh(script:'git log -1 --pretty=%B', returnStdout: true).trim()
   sh "if [ ! -d ~/.config ]; then mkdir ~/.config;fi"
   sh 'echo "github.com:" >> ~/.config/hub'
   sh "echo \"- user: ${user}\" >> ~/.config/hub"
